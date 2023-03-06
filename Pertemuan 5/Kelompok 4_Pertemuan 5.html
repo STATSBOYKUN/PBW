@@ -1,70 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
- 
-    <title>Membuat Input Data Dengan Javascript Tanpa Database</title>
- 
-    
-  </head>
-  <body>
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8"><h1>Penghitungan Stok Obat</h1>
-          <form name="datapribadi" method="" action="">
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Nama Obat</label>
-        <input type="text" class="form-control" name="nama obat" id="exampleFormControlInput1" placeholder="isi nama obat....">
-        <label for="exampleFormControlInput1">Stok Obat</label>
-        <input type="email" class="form-control" name="stok obat" id="exampleFormControlInput2" placeholder="isi jumlah stok....">
-      </div>      
-      <div class="form-group">
-        <button type="button" onClick='inputdata()' class="btn btn-success">Simpan</button>
-<button type="reset" class="btn btn-warning">Batal</button>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+  <title>Perpustakaan Obat</title>
+</head>
+
+<body>
+  <div>
+    <!-- navbar untuk mencari obat -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#" style="font-weight: bold;">Perpustakaan Obat</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" onclick="hidePage1()"> Input Obat<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="hidePage2()">Cari Obat</a>
+          </li>
+        </ul>
+
+        <script>
+          function hidePage1() {
+            document.getElementById("page-input").style.display = "block";
+            document.getElementById("page-cari").style.display = "none";
+          }
+          function hidePage2() {
+            document.getElementById("page-input").style.display = "none";
+            document.getElementById("page-cari").style.display = "block";
+          }
+        </script>
       </div>
-      <div class="row">
-        <table class="table" id="databel">
-          <thead>
-            <tr>
-              <th scope="col">Nama Obat</th>
-              <th scope="col">Stok Obat</th>
-            </tr>
-          </thead>
-        </table>  
+  </div>
+  <div class="container" id="page-input">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h1 style="text-align: center;">Input Obat</h1>
+        <hr>
+        <form name="datapribadi" method="" action="">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Nama Obat</label>
+            <input type="text" class="form-control" name="nama obat" id="exampleFormControlInput1"
+              placeholder="isi nama obat...." />
+            <label for="exampleFormControlInput1">Stok Obat</label>
+            <input type="number" class="form-control" name="stok obat" id="exampleFormControlInput2"
+              placeholder="isi jumlah stok...." />
+            <label for="exampleFormControlInput1">Harga</label>
+            <input type="text" class="form-control" name="harga" id="exampleFormControlInput3"
+              placeholder="harga dalam rupiah" />
+            <label for="exampleFormControlInput1">Expired Date</label>
+            <input type="date" class="form-control" name="expired date" id="exampleFormControlInput4" placeholder="" />
+          </div>
+          <div style="margin-bottom:0.5em;">
+            <details>
+              <summary>Referensi</summary>
+
+              <table class="table" id="table-obat">
+                <tr class="title">
+                  <th>No.</th>
+                  <th>Nama Obat</th>
+                  <th>Satuan</th>
+                  <th>HET</th>
+                  <th>ED</th>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>Favipiravir 200 mg</td>
+                  <td>Tablet</td>
+                  <td>22500</td>
+                  <td>23-04-2022</td>
+                </tr>
+
+                <tr>
+                  <td>2.</td>
+                  <td>Remdesivir 100 mg</td>
+                  <td>Vial</td>
+                  <td>510000</td>
+                  <td>05-10-2023</td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Osel 75 mg</td>
+                  <td>Kapsul</td>
+                  <td>26000</td>
+                  <td>18-02-2024</td>
+                </tr>
+
+                <tr>
+                  <td>4.</td>
+                  <td>Intravenous 25 ml</td>
+                  <td>Vial</td>
+                  <td>3262300</td>
+                  <td>10-06-2022</td>
+                </tr>
+                <tr>
+                  <td>5.</td>
+                  <td>Intravenous 50 ml</td>
+                  <td>Vial</td>
+                  <td>6174900</td>
+                  <td>27-01-2023</td>
+                </tr>
+                <tr>
+                  <td>6.</td>
+                  <td>Ivermectin 12 mg</td>
+                  <td>Tablet</td>
+                  <td>7500</td>
+                  <td>22-03-2023</td>
+                </tr>
+
+                <tr>
+                  <td>7.</td>
+                  <td>Tocillizumab 400 mg/20 ml</td>
+                  <td>Vial</td>
+                  <td>5710600</td>
+                  <td>04-09-2023</td>
+                </tr>
+
+                <tr>
+                  <td>8.</td>
+                  <td>Tocillizumab 80 mg/4 ml</td>
+                  <td>Vial</td>
+                  <td>1162200</td>
+                  <td>17-05-2024</td>
+                </tr>
+
+                <tr>
+                  <td>9.</td>
+                  <td>Azithromycin 500 mg Tablet</td>
+                  <td>Tablet</td>
+                  <td>1700</td>
+                  <td>15-06-2023</td>
+                </tr>
+                <tr>
+                  <td>10.</td>
+                  <td>Azithromycin 500 mg Infus</td>
+                  <td>Vial</td>
+                  <td>95400</td>
+                  <td>29-11-2022</td>
+                </tr>
+              </table>
+
+            </details>
+          </div>
+
+          <div class="form-group">
+            <button type="button" onClick="inputdata()" class="btn btn-success">
+              Simpan
+            </button>
+            <button type="reset" class="btn btn-warning">Batal</button>
+          </div>
+
+          <div class="row">
+            <table class="table" id="databel">
+              <thead>
+                <tr>
+                  <th scope="col">Nama Obat</th>
+                  <th scope="col">Stok Obat</th>
+                  <th scope="col">Harga(Rp)</th>
+                  <th scope="col">Expired</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </form>
       </div>
-    </form>
-        </div>          
-        <div class="col-md-2"></div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script>
+    function inputdata() {
+      var nama_obat = document.forms["datapribadi"]["nama obat"].value;
+      var stok_obat = document.forms["datapribadi"]["stok obat"].value;
+      var harga = document.forms["datapribadi"]["harga"].value;
+      var expired = document.forms["datapribadi"]["expired date"].value;
+
+      var tabel = document.getElementById("databel");
+      var baris = tabel.insertRow(1);
+      var kol1 = baris.insertCell(0);
+      var kol2 = baris.insertCell(1);
+      var kol3 = baris.insertCell(2);
+      var kol4 = baris.insertCell(3);
+
+      kol1.innerHTML = nama_obat;
+      kol2.innerHTML = stok_obat;
+      kol3.innerHTML = harga;
+      kol4.innerHTML = expired;
+    }
+  </script>
+
+  <div class="container2" id="page-cari" style="display: none;">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h1 style="text-align: center;">Cari Obat</h1>
+        <hr>
+        <form>
+          <div class="form-group">
+            <label for="cariobat">Cari Obat</label>
+            <input type="text" class="form-control" id="cariobat" placeholder="Masukkan Nama Obat" />
+          </div>
+          <div class="form-group">
+            <button type="button" onclick="searchdata()" class="btn btn-success">Cari</button>
+          </div>
+        </form>
+
+        <script>
+          function searchdata() {
+            var cariobat = document.getElementById("cariobat").value;
+            var tabel = document.getElementById("databel");
+            var baris = tabel.rows.length;
+            var found = false;
+            var i = 0;
+            while (!found && i < baris) {
+              var kol1 = tabel.rows[i].cells[0];
+              if (kol1.innerHTML == cariobat) {
+                found = true;
+                var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+                myModal.show();
+              } else {
+                i++;
+              }
+            }
+          }
+        </script>
+
+        <!-- pop up in bootstrap -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Obat ditemukan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Nama : 
+                Stok:
+                Harga:
+                ED:
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    
- 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
-    <script>
-         function inputdata(){
-       var nama_obat =document.forms['datapribadi']['nama obat'].value;
-       var stok_obat =document.forms['datapribadi']['stok obat'].value;     
-                                               
-       var tabel = document.getElementById("databel");
-       var baris = tabel.insertRow(1);
-       var kol1 = baris.insertCell(0);
-       var kol2 = baris.insertCell(1);
-               
-       kol1.innerHTML = nama_obat;
-       kol2.innerHTML = stok_obat;
-      }
-      </script>
-   </body>
+  </div>
+
+  <div>
+    <footer class="footer" style="text-align: center;">
+      <div class="container">
+        <span class="text-muted">© Created by Kelompok 4 2KS4</span>
+        <span class="text-muted"> | Politeknik Statistika STIS</span>
+      </div>
+    </footer>
+  </div>
+</body>
+
 </html>

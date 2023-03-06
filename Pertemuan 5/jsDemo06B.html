@@ -7,31 +7,24 @@
   <body>
     <script id="s1">
       // Script with id s1
-      var userAge = "27";
     </script>
     <p>Our first JavaScript script</p>
     <script id="s2">
       // Script with id s2
-      user = "Umar Hadi Pranoto";
-      document.writeln("<p><b>Hello " + user + "<br>\nHello World!</b></p > ");
-
-      document.writeln("(1) The value of userAge is: " + userAge + "<br>");
+      user = "<your name>";
+      document.writeln("<p><b>Hello " + user + "<br>\nHello World!</b ></p > ");
+      try {
+        document.writeln("(1) The value of userAge is: " + userAge + "<br>");
+      } catch (error) {
+        document.getElementById("alert").innerHTML = error.message;
+      }
       document.writeln("(2) This statement is executed<br>");
-      document.writeln("(3) The value of userAge is: " + userAge + "<br>");
     </script>
     <script id="s3">
       // Script with id s3
     </script>
     <p>This is the rest of the page</p>
-
-    <!-- Exercise 1j -->
-    <script id="s4">
-      if (false) {
-        var x = 519;
-      } else {
-        document.writeln("The value of x is " + x + "<br>");
-      }
-    </script>
     <noscript>JavaScript not supported or disabled</noscript>
   </body>
+  <p id="alert" style="color: red"></p>
 </html>

@@ -29,6 +29,7 @@
         [0],
       ];
 
+      /* 
       for (var i = 0; i < values.length; i++) {
         document.writeln(
           i + ") The type of " + values[i] + " is: " + typeof values[i] + "<br>"
@@ -38,6 +39,43 @@
         i + ") The type of " + values + " is: " + typeof values + "<br>"
       );
       document.writeln("Elements of values are: " + values.join() + "<br>");
+      document.writeln("<br>");
+      */
+      
+      document.writeln("(" + typeof(values[0]) + ")" + values[0] + " == " + "(" + typeof(values[0]) + ")" + values[0] + ": ");
+      document.writeln(values[0] == values[0]);
+      document.writeln("<br>");
+      
+      document.writeln("(" + typeof(values[0]) + ")" + values[0] + " === " + "(" + typeof(values[0]) + ")" + values[0] + ": ");
+      document.writeln(values[0] === values[0]);
+      document.writeln("<br>");
+
+      document.writeln("(" + typeof(values[0]) + ")" + values[0] + " < " + "(" + typeof(values[0]) + ")" + values[0] + ": ");
+      document.writeln(values[0] < values[0]);
+      document.writeln("<br>");
+
+      document.writeln("(" + typeof(values[0]) + ")" + values[0] + " > " + "(" + typeof(values[0]) + ")" + values[0] + ": ");
+      document.writeln(values[0] > values[0]);
+      document.writeln("<br>");
+      document.writeln("<br>");
+
+      document.writeln("(" + typeof(values[0]) + ")" + values[0] + " == " + "(" + typeof(values[1]) + ")" + values[1] + ": ");
+      document.writeln(values[0] == values[1]);
+      document.writeln("<br>");
+
+      document.writeln("(" + typeof(values[0]) + ")" + values[0] + " === " + "(" + typeof(values[1]) + ")" + values[1] + ": ");
+      document.writeln(values[0] === values[1]);
+      document.writeln("<br>");
+
+      document.writeln("(" + typeof(values[0]) + ")" + values[0] + " < " + "(" + typeof(values[1]) + ")" + values[1] + ": ");
+      document.writeln(values[0] < values[1]);
+      document.writeln("<br>");
+
+      document.writeln("(" + typeof(values[0]) + ")" + values[0] + " > " + "(" + typeof(values[1]) + ")" + values[1] + ": ");
+      document.writeln(values[0] > values[1]);
+      document.writeln("<br>");
+
+      
     </script>
     <noscript>JavaScript not supported or disabled</noscript>
   </body>
