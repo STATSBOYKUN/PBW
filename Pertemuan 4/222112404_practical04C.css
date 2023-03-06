@@ -1,0 +1,60 @@
+nav {
+  overflow: hidden;
+  background-color: #333333;
+}
+
+nav ul{
+  width: 100%;
+  margin:0;
+}
+
+nav li{
+  display: inline-block;
+  text-align: center;
+  list-style: none;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  height: 30px;
+  text-decoration: none;
+  padding: 5px 1.5em;
+}
+
+nav li a:hover{
+  background-color: #C74451;
+}
+
+li {
+  list-style: none;
+}
+
+.active{
+  background-color: #C74451;
+}
+
+.judul {
+  font-weight: bold;
+}
+
+.tanggal {
+  font-style: italic;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 11% auto;
+  grid-template-rows: auto auto;
+}
+
+footer{
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 1px;
+}
+
+footer a{
+  color: white;
+}

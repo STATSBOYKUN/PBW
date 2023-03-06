@@ -1,0 +1,234 @@
+<!-- Project Stok Toko Obat-->
+<!-- Fitur: -->
+<!-- Input obat: nama obat, banyaknya obat, expired -->
+<!-- Ngecek kesediaan obat: output: ada/ngga, sama sisa stok -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perhitungan Stok Obat</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans");
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        background-color: beige;
+        padding: 20px;
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+
+      tabel {
+        /* text-align: center; */
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+      }
+
+      .searching {
+        background-color: wheat;
+        width: 300px;
+        height: 37px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        text-align: left;
+        margin: left;
+        margin-top: 4px;
+        margin-bottom: 6px;
+        background: linear-gradient(
+          180deg,
+          #ffffff 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        box-shadow: 0px 3px 16px -2px rgba(0, 0, 0, 0.25);
+      }
+
+      footer p {
+        text-align: center;
+      }
+
+      footer {
+        background-color: black;
+        color: white;
+        padding-bottom: 5px;
+      }
+    </style>
+
+    <script type="text/javascript">
+      let table = document.getElementById("table-obat");
+      let nama_obat = document.getElementById("nama-obat");
+      let jumlah = document.getElementById("jumlah");
+      let satuan = document.getElementById("satuan");
+      let harga = document.getElementById("harga");
+      let expired = document.getElementById("expired");
+
+      function createTable() {
+        let row = table.insertRow(-1);
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+        let cell4 = row.insertCell(3);
+        let cell5 = row.insertCell(4);
+
+        cell1.innerHTML = table.rows.length - 1;
+        cell2.innerHTML = nama_obat.value;
+        cell3.innerHTML = satuan.value;
+        cell4.innerHTML = harga.value;
+        cell5.innerHTML = expired.value;
+      }
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Aplikasi Stok Obat Sederhana</h1>
+      <hr />
+    </header>
+    <main>
+      <p id="judultabel" style="font-weight: bold">Daftar Obat</p>
+
+      <form action="" method="get">
+        <div class="searching">
+          <label for="nama-obat">Nama Obat</label>
+          <input list="list_obat" name="nama_obat" id="nama-obat" />
+
+          <datalist id="list_obat">
+            <option value="Favipiravir"></option>
+            <option value="Remdeivir"></option>
+            <option value="Intravenous"></option>
+            <option value="Ivermectin"></option>
+          </datalist>
+        </div>
+        <div class="searching">
+          <label for="jumlah">Jumlah</label>
+          <input type="number" id="jumlah" />
+        </div>
+        <div class="searching">
+          <label for="satuan">Satuan</label>
+          <input type="number" id="satuan" />
+        </div>
+        <div class="searching">
+          <label for="harga">HET</label>
+          <input type="number" id="harga" />
+        </div>
+        <div class="searching">
+          <label for="expired">Experition Date</label>
+          <input type="number" id="expired" />
+        </div>
+      </form>
+      <input
+        name="generate"
+        type="button"
+        value="Tambah"
+        onclick="createTable();"
+      />
+    </main>
+    <h3>Referensi Obat</h3>
+    <table id="table-obat">
+      <tr class="title">
+        <th>No.</th>
+        <th>Nama Obat</th>
+        <th>Satuan</th>
+        <th>HET</th>
+        <th>ED</th>
+      </tr>
+      <tr>
+        <td>1.</td>
+        <td>Favipiravir 200 mg</td>
+        <td>Tablet</td>
+        <td>22500</td>
+        <td>23-04-2022</td>
+      </tr>
+
+      <tr>
+        <td>2.</td>
+        <td>Remdesivir 100 mg</td>
+        <td>Vial</td>
+        <td>510000</td>
+        <td>05-10-2023</td>
+      </tr>
+      <tr>
+        <td>3.</td>
+        <td>Osel 75 mg</td>
+        <td>Kapsul</td>
+        <td>26000</td>
+        <td>18-02-2024</td>
+      </tr>
+
+      <tr>
+        <td>4.</td>
+        <td>Intravenous 25 ml</td>
+        <td>Vial</td>
+        <td>3262300</td>
+        <td>10-06-2022</td>
+      </tr>
+      <tr>
+        <td>5.</td>
+        <td>Intravenous 50 ml</td>
+        <td>Vial</td>
+        <td>6174900</td>
+        <td>27-01-2023</td>
+      </tr>
+      <tr>
+        <td>6.</td>
+        <td>Ivermectin 12 mg</td>
+        <td>Tablet</td>
+        <td>7500</td>
+        <td>22-03-2023</td>
+      </tr>
+
+      <tr>
+        <td>7.</td>
+        <td>Tocillizumab 400 mg/20 ml</td>
+        <td>Vial</td>
+        <td>5710600</td>
+        <td>04-09-2023</td>
+      </tr>
+
+      <tr>
+        <td>8.</td>
+        <td>Tocillizumab 80 mg/4 ml</td>
+        <td>Vial</td>
+        <td>1162200</td>
+        <td>17-05-2024</td>
+      </tr>
+
+      <tr>
+        <td>9.</td>
+        <td>Azithromycin 500 mg Tablet</td>
+        <td>Tablet</td>
+        <td>1700</td>
+        <td>15-06-2023</td>
+      </tr>
+      <tr>
+        <td>10.</td>
+        <td>Azithromycin 500 mg Infus</td>
+        <td>Vial</td>
+        <td>95400</td>
+        <td>29-11-2022</td>
+      </tr>
+    </table>
+
+    <div id="wrapper"></div>
+
+    <hr />
+
+    <footer>
+      <hr />
+      <p>Copyright © 2023 Politeknik Statistika STIS</p>
+      <p style="margin-top: -15px">Created by Kelompok 4</p>
+    </footer>
+  </body>
+</html>
