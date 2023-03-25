@@ -224,28 +224,11 @@
         </form>
 
         <script>
-          function searchdata() {
-            var cariobat = document.getElementById("cariobat").value;
-            var tabel = document.getElementById("databel");
-            var baris = tabel.rows.length;
-            var found = false;
-            var i = 0;
-            while (!found && i < baris) {
-              var kol1 = tabel.rows[i].cells[0];
-              if (kol1.innerHTML == cariobat) {
-                found = true;
-                var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
-                myModal.show();
-              } else {
-                i++;
-              }
-            }
-          }
         </script>
 
-        <!-- pop up in bootstrap -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+<!-- pop up in bootstrap -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Obat ditemukan</h5>
@@ -254,10 +237,31 @@
                 </button>
               </div>
               <div class="modal-body">
-                Nama : 
-                Stok:
-                Harga:
-                ED:
+                <p id="Hasil"></p>
+                <script>
+                  function searchdata() {
+                    var cariobat = document.getElementById("cariobat").value;
+                    var tabel = document.getElementById("databel");
+                    var baris = tabel.rows.length;
+                    var found = false;
+                    var i = 0;
+                    while (!found && i < baris) {
+                      var kol1 = tabel.rows[i].cells[0];
+                      if (kol1.innerHTML == cariobat) {
+                        found = true;
+                        document.getElementById("Hasil").innerHTML = `Nama\t: ${tabel.rows[i].cells[0].innerHTML} <br> 
+                          Stok\t: ${tabel.rows[i].cells[1].innerHTML} <br> 
+                          Harga\t: ${tabel.rows[i].cells[2].innerHTML} <br>
+                          Expire Date\t: ${tabel.rows[i].cells[3].innerHTML} <br>`;
+                      }
+                      else {
+                        i++;
+                        if (i == baris) document.getElementById("Hasil").innerHTML = "Obat Tidak Ditemukan";
+                      }
+                    }
+                  }
+                </script>
+                
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -267,6 +271,9 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div id="Hasil" style="text-align: center;">
   </div>
 
   <div>

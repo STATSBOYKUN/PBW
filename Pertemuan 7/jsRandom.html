@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    td {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ccc;
+    }
+
+    form {
+      text-align: center;
+    }
+
+    input {
+      margin-top: 10px;
+      width: 50px;
+      text-align: center;
+      font-size: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- tabel 3x3 dengan 9 kotak klik yang diisi angka random 1-9 -->
+
+  <table border="1">
+    <tr>
+      <td id="td1" onclick="randomize(1)"></td>
+      <td id="td2" onclick="randomize(2)"></td>
+      <td id="td3" onclick="randomize(3)"></td>
+    </tr>
+    <tr>
+      <td id="td4" onclick="randomize(4)"></td>
+      <td id="td5" onclick="randomize(5)"></td>
+      <td id="td6" onclick="randomize(6)"></td>
+    </tr>
+    <tr>
+      <td id="td7" onclick="randomize(7)"></td>
+      <td id="td8" onclick="randomize(8)"></td>
+      <td id="td9" onclick="randomize(9)"></td>
+    </tr>
+  </table>
+
+  <!-- jumlah angka random yang dihasilkan dengan button-->
+  <button onclick="countRandom()">Hitung</button>
+  <script>
+    // fungsi randomize untuk mengisi kotak dengan angka random 1-9
+    function randomize(id) {
+      var random = Math.floor(Math.random() * 9) + 1;
+      document.getElementById("td" + id).innerHTML = random;
+    }
+
+    // fungsi untuk menghitung value angka random yang dihasilkan dan menampilkan dalam window alert
+    function countRandom() {
+      var total = 0;
+      for (var i = 1; i <= 9; i++) {
+        var value = document.getElementById("td" + i).innerHTML;
+        if (value != "") {
+          total += parseInt(value);
+        }
+      }
+      alert("Jumlah seluruh bilangan dalam papan adalah " + total + ".");
+    }
+  </script>
+</body>
+</html>

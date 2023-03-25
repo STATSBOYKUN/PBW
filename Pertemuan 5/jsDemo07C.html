@@ -2,6 +2,17 @@
 <html lang="en-GB">
   <head>
     <title>JavaScript 07C</title>
+    <style>
+      table{
+        border-collapse: collapse;
+        border: 1px solid black;
+      }
+
+      tr, th, td{
+        border: 1px solid black;
+        padding: 0 1em;
+      }
+    </style>
   </head>
 
   <body>
@@ -40,7 +51,7 @@
       );
       document.writeln("Elements of values are: " + values.join() + "<br>");
       document.writeln("<br>");
-      */
+      
       
       document.writeln("(" + typeof(values[0]) + ")" + values[0] + " == " + "(" + typeof(values[0]) + ")" + values[0] + ": ");
       document.writeln(values[0] == values[0]);
@@ -74,7 +85,33 @@
       document.writeln("(" + typeof(values[0]) + ")" + values[0] + " > " + "(" + typeof(values[1]) + ")" + values[1] + ": ");
       document.writeln(values[0] > values[1]);
       document.writeln("<br>");
+      */
 
+      document.writeln("<table>");
+      
+      for (var i = 0; i < 1; i++) {
+        for (var j = 0; j <= 1; j++) {
+          document.writeln("<tr>");
+          document.writeln("<td>");
+          document.writeln("(" + typeof(values[i]) + ")" + values[i] + " == " + "(" + typeof(values[j]) + ")" + values[j] + ": ");
+          document.writeln(values[i] == values[j]);
+          document.writeln("</td>");
+          document.writeln("<td>");
+          document.writeln("(" + typeof(values[i]) + ")" + values[i] + " === " + "(" + typeof(values[j]) + ")" + values[j] + ": ");
+          document.writeln(values[i] === values[j]);
+          document.writeln("</td>");
+          document.writeln("<td>");
+          document.writeln("(" + typeof(values[i]) + ")" + values[i] + " < " + "(" + typeof(values[j]) + ")" + values[j] + ": ");
+          document.writeln(values[i] < values[j]);
+          document.writeln("</td>");
+          document.writeln("<td>");
+          document.writeln("(" + typeof(values[i]) + ")" + values[i] + " > " + "(" + typeof(values[j]) + ")" + values[j] + ": ");
+          document.writeln(values[i] > values[j]);
+          document.writeln("</td>");
+          document.writeln("</tr>");
+        }
+      }
+      document.writeln("</table>");
       
     </script>
     <noscript>JavaScript not supported or disabled</noscript>

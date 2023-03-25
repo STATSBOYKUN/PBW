@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <title>JavaScript and Forms</title>
+    <script>
+      // fungsi untuk cek angka atau bukan
+      function processInput(temp) {
+        document.getElementById("error").innerHTML = "";
+        // cek satu demi satu karakter
+        for (let i = 0; i < document.form1.fahrenheit.value.length; i++) {
+          // cek apakah karakter adalah angka
+          if (
+            document.form1.fahrenheit.value.charAt(i) < "0" ||
+            document.form1.fahrenheit.value.charAt(i) > "9"
+          ) {
+            // jika bukan angka, tampilkan pesan kesalahan
+            document.getElementById("error").innerHTML =
+              "Tolong masukkan angka.";
+            // kosongkan input
+            document.form1.fahrenheit.value = "";
+            document.form1.celsius.value = "";
+            return;
+          }
+        }
+
+        // Konversi temperatur
+        return FahrenheitToCelsius(temp);
+      }
+
+      function FahrenheitToCelsius(temperature) {
+        // Konversi temperatur
+        return (temperature - 32) * (5 / 9);
+      }
+    </script>
+
+    <!-- CSS-->
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+        background-color: #f0f0f0;
+        color: #000000;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 1.5em;
+        color: #000000;
+      }
+
+      form {
+        width: 400px;
+        margin: 0 auto;
+        padding: 10px;
+        border: 1px solid #000000;
+        background-color: #ffffff;
+      }
+
+      input {
+        margin: 5px;
+      }
+
+      #error {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>JavaScript and Forms</h1>
+    <form name="form1" action="">
+      <label for="fahrenheit">Fahrenheit : </label>
+      <input
+        type="text"
+        name="fahrenheit"
+        id="df"
+        size="10"
+        value="0"
+        onkeydown="if (event.keyCode == 13) document.form1.celsius.value = processInput(parseFloat(document.form1.fahrenheit.value)).toFixed(1);"
+      /><br />
+      <label for="celsius">Celsius &nbsp;&nbsp;&emsp;: </label>
+      <input type="text" name="celsius" size="10" onfocus="blur();" /><br />
+      <input
+        type="button"
+        name="Convert"
+        value="Convert"
+        onclick="document.form1.celsius.value = processInput(parseFloat(document.form1.fahrenheit.value)).toFixed(1);"
+      />
+    </form>
+    <div id="error"></div>
+  </body>
+</html>
